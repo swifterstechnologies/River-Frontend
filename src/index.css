@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  body {
+    @apply bg-[#FBFBFD] text-[#1D1D1F] font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border-white/20;
+  }
+
+  .apple-card {
+    @apply bg-white rounded-[24px] border border-black/5 p-8 transition-all duration-300 relative;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  .apple-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .apple-btn-primary {
+    @apply bg-[#0071E3] hover:bg-[#0077ED] text-white font-medium py-2.5 px-6 rounded-full transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 disabled:opacity-50 disabled:active:scale-100;
+  }
+
+  .apple-btn-secondary {
+    @apply bg-[#F5F5F7] hover:bg-[#E8E8ED] text-[#1D1D1F] font-medium py-2.5 px-6 rounded-full transition-all duration-300 flex items-center justify-center gap-2 active:scale-95;
+  }
+
+  .apple-input {
+    @apply w-full rounded-xl bg-[#F5F5F7] border border-transparent px-5 py-3 focus:bg-white focus:border-[#0071E3] focus:ring-4 focus:ring-[#0071E3]/10 outline-none transition-all duration-300 text-[15px];
+  }
+
+  .nav-blur {
+    @apply sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-black/5;
+  }
+}
+
+/* Animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-apple-glow {
+  animation: apple-glow 2s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes apple-glow {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0px rgba(239, 68, 68, 0);
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+  }
+}
+
+/* Utilities */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #E5E5E7;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #C7C7CC;
+}
