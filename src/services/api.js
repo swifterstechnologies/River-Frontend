@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://river-backend-mee5.onrender.com/api';
 export const getInventory = async () => {
     const response = await axios.get(`${API_BASE_URL}/inventory`);
     return response.data;
@@ -129,7 +129,7 @@ export const autoProcessGRN = async (file) => {
     formData.append('pdf', file);
     const response = await axios.post(`${API_BASE_URL}/grn/auto-process`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
-        timeout: 120000  
+        timeout: 120000
     });
     return response.data;
 };
